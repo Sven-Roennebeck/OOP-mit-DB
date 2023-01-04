@@ -51,7 +51,8 @@ public class Handling extends Printer{
                 case 1 -> kfzHandling(1);// anlegen
                 case 2 -> kfzHandling(2);// bearbeiten
                 case 3 -> kfzHandling(3);// suchen
-                case 4 -> kfzHandling(4);// loeschen
+                case 8 -> kfzHandling(4);// loeschen
+                case 4 -> printToDB();
             }
         }
     }// Ende Hauptmenue
@@ -118,5 +119,12 @@ public class Handling extends Printer{
         sysPrintOut(1,0);
         java.awt.Toolkit.getDefaultToolkit().beep();
         hauptMenue();
+    }
+
+
+    public void printToDB(){
+        MainBoerse.anbindungDB.connectDB();
+        MainBoerse.anbindungDB.setCommand("insert into mysqljava values(29,'Robin','Fritz',54)");
+        MainBoerse.anbindungDB.sendCommand();
     }
 }// Ende Handling

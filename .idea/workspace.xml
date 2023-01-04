@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e227667-bd2b-4da1-bd0f-440f079c4c63" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Auto-Projekt-mit-DB.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainBoerse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Fahrzeuge/Boot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Fahrzeuge/Fahrzeug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Fahrzeuge/Lkw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Fahrzeuge/Motorrad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Fahrzeuge/Pkw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/Detectiv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/FahrzeugHersteller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/IDInputChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/InputVar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/Schredder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/Service/Werkstatt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/System/Garage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/System/Handling.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/System/InputChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/System/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Projekt/System/Random.java" afterDir="false" />
+    <list default="true" id="2e227667-bd2b-4da1-bd0f-440f079c4c63" name="Changes" comment="initial pusch">
+      <change afterPath="$PROJECT_DIR$/src/Projekt/System/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projekt/MainBoerse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projekt/MainBoerse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Projekt/System/Handling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Projekt/System/Handling.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +34,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Administrator/Downloads/mysql-connector-java-8.0.23.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="RunManager">
@@ -85,6 +70,14 @@
       <option name="presentableId" value="Default" />
       <updated>1672832162963</updated>
     </task>
+    <task id="LOCAL-00001" summary="initial pusch">
+      <created>1672833075054</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672833075054</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -97,5 +90,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial pusch" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial pusch" />
   </component>
 </project>

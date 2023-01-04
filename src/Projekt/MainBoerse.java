@@ -6,6 +6,7 @@ public class MainBoerse{
     public static Handling handling = new Handling();
     public static InputVar eingabe = new InputVar();
     public static Garage speicher = new Garage();
+    public static DBConnector anbindungDB = new DBConnector();
     public static Random generator = new Random();
     public static void main(String[] args) {
         speicher.initializeSpeicher();// Array wird mit Listen geladen
