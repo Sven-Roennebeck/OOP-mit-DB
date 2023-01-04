@@ -121,10 +121,19 @@ public class Handling extends Printer{
         hauptMenue();
     }
 
-
+    int DBid = 1;
+    int array = 1;
+    int index = 1;
     public void printToDB(){
+
+        //MainBoerse.anbindungDB.setCommand("insert into assauto values("+DBid+","+MainBoerse.speicher.getFahrzeug(array,index).getMarke()+","","","+MainBoerse.speicher.getFahrzeug(array,index).getFarbe()+","+MainBoerse.speicher.getFahrzeug(array,index).getPreis()+",'1','2.2','3.3','4')");
         MainBoerse.anbindungDB.connectDB();
-        MainBoerse.anbindungDB.setCommand("insert into mysqljava values(29,'Robin','Fritz',54)");
+        MainBoerse.anbindungDB.setCommand("insert into assauto values("+DBid+",'"+MainBoerse.speicher.getFahrzeug(array,index).getMarke()+"','"+MainBoerse.speicher.getFahrzeug(array,index).getModell()+"',"+MainBoerse.speicher.getFahrzeug(array,index).getBaujahr()+",'"+MainBoerse.speicher.getFahrzeug(array,index).getFarbe()+"',"+MainBoerse.speicher.getFahrzeug(array,index).getPreis()+",'1','2.2','3.3','4')");
         MainBoerse.anbindungDB.sendCommand();
+        DBid++;
+        index++;
+        hauptMenue();
+
     }
+
 }// Ende Handling

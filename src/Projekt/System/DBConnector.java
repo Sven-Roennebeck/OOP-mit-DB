@@ -10,7 +10,7 @@ public class DBConnector {
     private static String user = "root";
 
     private static String password = "";
-    private static String db = "mysqljava";
+    private static String db = "assauto";//  mysqljava
     private static String command;// = "insert into mysqljava values(11,'Robin','Fritz',54)";
 
     private static Connection con;// Verbindung zur DB
