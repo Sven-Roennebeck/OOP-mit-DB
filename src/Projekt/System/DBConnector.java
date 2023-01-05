@@ -1,4 +1,10 @@
 package Projekt.System;
+import Projekt.Fahrzeuge.Boot;
+import Projekt.Fahrzeuge.Lkw;
+import Projekt.Fahrzeuge.Motorrad;
+import Projekt.Fahrzeuge.Pkw;
+import Projekt.MainBoerse;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -43,4 +49,58 @@ public class DBConnector {
     public static void setCommand(String command) {
         DBConnector.command = command;
     }
+
+    public void printToDB(){
+        connectDB();
+        for(int i = 0; i < 4;i++){
+            for(int e = 0; e < MainBoerse.speicher.anzahlKfzListe(i);e++){
+                einzelPrintToDB(i,e);
+            }
+        }
+        MainBoerse.handling.hauptMenue();
+    }
+
+
+
+    int DBid = 1;
+    public void einzelPrintToDB(int array, int index){
+
+        String marke = MainBoerse.speicher.getFahrzeug(array,index).getMarke();
+        String model = MainBoerse.speicher.getFahrzeug(array,index).getModell();
+        int baujahr = MainBoerse.speicher.getFahrzeug(array,index).getBaujahr();
+        String farbe = MainBoerse.speicher.getFahrzeug(array,index).getFarbe();
+        double preis = MainBoerse.speicher.getFahrzeug(array,index).getPreis();
+        int anzahlPropeller = 0;
+        double klasse = 0.0;
+        boolean beiwagen = false;
+        int anzahlTueren = 0;
+
+        if(array == 0){
+            anzahlPropeller = ((Boot) MainBoerse.speicher.getFahrzeug(array,index)).getAnzahlRotorBlaetter();
+        }else if(array == 1){
+            klasse = ((Lkw) MainBoerse.speicher.getFahrzeug(array,index)).getKlasse();
+        }else if(array == 2){
+            beiwagen = ((Motorrad) MainBoerse.speicher.getFahrzeug(array,index)).isBeiwagen();
+        }else if(array == 3){
+            anzahlTueren = ((Pkw)MainBoerse.speicher.getFahrzeug(array,index)).getAnzahlTueren();
+        }
+
+        setCommand("insert into assauto values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+")");
+        sendCommand();
+        DBid++;
+    }// ende print to DB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
