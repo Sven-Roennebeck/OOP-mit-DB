@@ -11,7 +11,7 @@ public class MainBoerse{
     public static void main(String[] args) {
         speicher.initializeSpeicher();// Array wird mit Listen geladen
         // zum start mit leerer Datenbank Zeile 13 einfach auskommentieren
-        generator.randomFahrzeuge(100);// Random Objekte erstellen
+        generator.randomFahrzeuge(5000);// Random Objekte erstellen
 
 
         /*

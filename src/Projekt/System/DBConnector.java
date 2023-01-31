@@ -57,7 +57,7 @@ public class DBConnector {
 
         connectDB();
 
-        String command = "";
+        String querry = "";
         int firstrun = 0;
         for(int array = 0; array < 4;array++){
             for(int index = 0; index < MainBoerse.speicher.anzahlKfzListe(array);index++){
@@ -67,6 +67,7 @@ public class DBConnector {
                 int baujahr = MainBoerse.speicher.getFahrzeug(array,index).getBaujahr();
                 String farbe = MainBoerse.speicher.getFahrzeug(array,index).getFarbe();
                 double preis = MainBoerse.speicher.getFahrzeug(array,index).getPreis();
+                int ps = MainBoerse.speicher.getFahrzeug(array,index).getPs();
                 int anzahlPropeller = 0;
                 double klasse = 0.0;
                 boolean beiwagen = false;
@@ -84,21 +85,23 @@ public class DBConnector {
 
 
                 if(firstrun == 0){
-                    command = "insert into oopAutos values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
+                    querry = "insert into oopAutos values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+ps+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
                     firstrun = 1;
                 }else if(array == 3 && (index == MainBoerse.speicher.anzahlKfzListe(array)-1)){
-                    command = command + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+");";
+                    querry = querry + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+ps+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+");";
                 }else{
-                    command = command + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
+                    querry = querry + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+ps+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
                 }
                 DBid++;
             }
         }
-        sendCommand();
-        sendCommandToDB();
+        //System.out.println(command);
+        //sendCommand();
+        sendCommandToDB(querry);
     }
 
-    public void sendCommandToDB(){
+    public void sendCommandToDB(String querry){
+        setCommand(querry);
         sendCommand();
         MainBoerse.handling.hauptMenue();
     }// ende print to DB
