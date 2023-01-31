@@ -11,7 +11,7 @@ public class MainBoerse{
     public static void main(String[] args) {
         speicher.initializeSpeicher();// Array wird mit Listen geladen
         // zum start mit leerer Datenbank Zeile 13 einfach auskommentieren
-        generator.randomFahrzeuge(5000000);// Random Objekte erstellen
+        generator.randomFahrzeuge(100);// Random Objekte erstellen
 
 
         /*
@@ -47,7 +47,7 @@ public class MainBoerse{
 
 
 */
-/*
+
         // Summe aller erstellten Test-Fahrzeuge anzeigen
         String[] typ = {"Boote:","Lkw's:","Motorraeder:","Pkw's:"};
         System.out.println("\nSummary");
@@ -55,7 +55,7 @@ public class MainBoerse{
             System.out.format("%-15s%-50s",typ[i],+speicher.anzahlKfzListe(i));
             System.out.println();
         }
-*/
+
 
         // ab hier gehts ins programm
         handling.hauptMenue();

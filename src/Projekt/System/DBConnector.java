@@ -12,11 +12,11 @@ import java.sql.Statement;
 
 
 public class DBConnector {
-    private static String url = "jdbc:mysql://localhost:3306/maasen";
+    private static String url = "jdbc:mysql://localhost:3306/test";
     private static String user = "root";
 
     private static String password = "";
-    private static String db = "assauto";//  mysqljava
+    private static String db = "oopAutos";//  mysqljava
     private static String command;// = "insert into mysqljava values(11,'Robin','Fritz',54)";
 
     private static Connection con;// Verbindung zur DB
@@ -53,16 +53,12 @@ public class DBConnector {
 
 
     public void printToDB(){
-
-
-
-
-
-
+        int DBid = 1;
 
         connectDB();
 
         String command = "";
+        int firstrun = 0;
         for(int array = 0; array < 4;array++){
             for(int index = 0; index < MainBoerse.speicher.anzahlKfzListe(array);index++){
 
@@ -87,54 +83,24 @@ public class DBConnector {
                 }
 
 
-                if(array == 0 && index == 0){
-                    command = "insert into assauto values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
+                if(firstrun == 0){
+                    command = "insert into oopAutos values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
+                    firstrun = 1;
                 }else if(array == 3 && (index == MainBoerse.speicher.anzahlKfzListe(array)-1)){
-                    command = "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+");";
+                    command = command + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+");";
                 }else{
-                    command = "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
+                    command = command + "("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n";
                 }
+                DBid++;
             }
         }
-
-        System.out.println(command);
-        MainBoerse.handling.hauptMenue();
+        sendCommand();
+        sendCommandToDB();
     }
 
-
-
-    int DBid = 1;
-    public void sendCommandToDB(int array, int index){
-
-        String marke = MainBoerse.speicher.getFahrzeug(array,index).getMarke();
-        String model = MainBoerse.speicher.getFahrzeug(array,index).getModell();
-        int baujahr = MainBoerse.speicher.getFahrzeug(array,index).getBaujahr();
-        String farbe = MainBoerse.speicher.getFahrzeug(array,index).getFarbe();
-        double preis = MainBoerse.speicher.getFahrzeug(array,index).getPreis();
-        int anzahlPropeller = 0;
-        double klasse = 0.0;
-        boolean beiwagen = false;
-        int anzahlTueren = 0;
-
-        if(array == 0){
-            anzahlPropeller = ((Boot) MainBoerse.speicher.getFahrzeug(array,index)).getAnzahlRotorBlaetter();
-        }else if(array == 1){
-            klasse = ((Lkw) MainBoerse.speicher.getFahrzeug(array,index)).getKlasse();
-        }else if(array == 2){
-            beiwagen = ((Motorrad) MainBoerse.speicher.getFahrzeug(array,index)).isBeiwagen();
-        }else if(array == 3){
-            anzahlTueren = ((Pkw)MainBoerse.speicher.getFahrzeug(array,index)).getAnzahlTueren();
-        }
-
-        setCommand("insert into assauto values("+DBid+",'"+marke+"','"+model+"',"+baujahr+",'"+farbe+"',"+preis+","+anzahlPropeller+","+klasse+","+beiwagen+","+anzahlTueren+"),\n");
-
-
-
-
-
-
+    public void sendCommandToDB(){
         sendCommand();
-        DBid++;
+        MainBoerse.handling.hauptMenue();
     }// ende print to DB
 
 
